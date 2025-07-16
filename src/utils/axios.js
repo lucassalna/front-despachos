@@ -1,14 +1,11 @@
-import axios from 'axios'
-import { useAuthStore } from '../store/auth'
+// src/axios.js o donde lo configures
+import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api/', 
-})
+  baseURL: 'http://ec2-3-140-254-107.us-east-2.compute.amazonaws.com/api',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+});
 
-api.interceptors.request.use((config) => {
-  const token = useAuthStore().token
-  if (token) config.headers.Authorization = `Bearer ${token}`
-  return config
-})
-
-export default api
+export default api;
