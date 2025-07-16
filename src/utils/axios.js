@@ -2,7 +2,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://ec2-3-140-254-107.us-east-2.compute.amazonaws.com/api',
+  // Usar URL relativa para aprovechar el proxy de Nginx
+  baseURL: '/api',
   headers: {
     'Content-Type': 'application/json'
   }
