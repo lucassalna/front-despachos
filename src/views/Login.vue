@@ -60,4 +60,14 @@ const login = async () => {
     error.value = true
   }
 }
+// En tu componente de login
+const handleLogin = async () => {
+  try {
+    const response = await api.post('auth/login/', credentials);
+    localStorage.setItem('token', response.data.token); // Ajusta según la estructura de respuesta
+    router.push('/dashboard'); // O la ruta que corresponda
+  } catch (error) {
+    console.error('Error de login', error);
+  }
+};
 </script>
